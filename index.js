@@ -8,11 +8,12 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const JWT_SC = process.env.secret_key
 const app = express();
+const PORT = 4000;
 
 const products = []
 
 app.use(cors({
-    origin: "http://localhost:3001"
+    origin: "hhttps://dashing-pavlova-da4764.netlify.app/"
 }))
 
 app.use(express.json())
@@ -155,4 +156,4 @@ app.delete("/product/:productid", authorize, async (req, res) => {
     }
 })
 
-app.listen(3000)
+app.listen(PORT,()=>console.log("Server is running at port " +PORT));
